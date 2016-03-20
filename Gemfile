@@ -10,4 +10,5 @@ gem 'capybara'
 gem 'cucumber'
 gem 'guard-cucumber'
 gem 'httparty'
+gem 'json'
 
