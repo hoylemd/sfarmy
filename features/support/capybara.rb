@@ -11,7 +11,7 @@ Capybara.app_host = ENV['BASE_URL']
 
 # load the cache
 Before do |scenario|
-  cache_path = ENV['CACHE_PATH'] || '.cuke_cache'
+  cache_path = ENV['CACHE_PATH'] || 'features/cache.json'
   if File.exist?(cache_path)
     @cache = JSON.parse(File.open(cache_path, 'r').read)
   else
@@ -30,7 +30,7 @@ end
 
 # save the cache
 After do |scenario|
-  cache_path = ENV['CACHE_PATH'] || '.cuke_cache'
+  cache_path = ENV['CACHE_PATH'] || 'features/cache.json'
 
   File.open(cache_path, 'w').puts @cache.to_json
 end
