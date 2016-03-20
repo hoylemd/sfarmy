@@ -81,6 +81,7 @@ DEPENDENCIES
   faker
   guard-cucumber
   httparty
+  json
   mini_magick
   minitest-reporters
   poltergeist
