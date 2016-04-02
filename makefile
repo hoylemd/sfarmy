@@ -10,3 +10,6 @@ go: $(PROJECT_NAME)/manage.py
 
 migrate: $(PROJECT_NAME)/manage.py
 	$(MANAGE) migrate
+
+first_time_dev_setup: scripts/first_time.sh
+	scripts/first_time.sh
