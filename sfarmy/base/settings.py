@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'django_extensions',
     'base',
     'polls',
-    'authentication'
 ]
 
 MIDDLEWARE_CLASSES = [
