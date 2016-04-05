@@ -141,4 +141,6 @@ STATICFILES_DIRS = (
     ),
 )
 
+# urls to go to when not logged in, and after logging in
+LOGIN_URL = 'django.contrib.auth.views.login'
 LOGIN_REDIRECT_URL = '/'
