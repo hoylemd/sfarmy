@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_extensions',
-    'base',
     'polls',
 ]
 
@@ -141,3 +140,5 @@ STATICFILES_DIRS = (
         'static',
     ),
 )
+
+LOGIN_REDIRECT_URL = '/'
