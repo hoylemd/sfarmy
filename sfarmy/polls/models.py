@@ -14,7 +14,11 @@ class Question(models.Model):
                               on_delete=models.SET_NULL)
 
     def was_published_recently(self):
-        return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
+        """
+        True if the question ws published in the last 24 hours
+        """
+        now = timezone.now()
+        return now - datetime.timedelta(days=1) <= self.pub_date <= now
 
     def __unicode__(self):
         return self.question_text
