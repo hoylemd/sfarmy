@@ -1,6 +1,7 @@
+from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
-from django.core.urlresolvers import reverse
+from django.utils import timezone
 from django.views import generic
 
 from base.views import LoggedInMixin
@@ -14,7 +15,8 @@ class IndexView(LoggedInMixin, generic.ListView):
 
     def get_queryset(self):
         """last 5 questions"""
-        return Question.objects.order_by('-pub_date')[:5]
+        return (Question.objects.filter(pub_date__lte=timezone.now())
+                                .order_by('-pub_date')[:5])
 
 
 class DetailView(generic.DetailView):
