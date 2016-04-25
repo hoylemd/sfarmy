@@ -1,6 +1,6 @@
 import datetime
 
-# from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse
 from django.test import TestCase
 from django.utils import timezone
 
@@ -8,7 +8,7 @@ from ..models import Question
 
 
 def create_question(text="What's up?", offset=0):
-    date = timezone.now + datetime.timedelta(days=offset)
+    date = timezone.now() + datetime.timedelta(days=offset)
     return Question.objects.create(question_text=text, pub_date=date)
 
 
