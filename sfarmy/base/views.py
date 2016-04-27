@@ -1,10 +1,11 @@
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import UserCreationForm
 from django.core.context_processors import csrf
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.utils.decorators import method_decorator
+
+from .forms import RegistrationForm
 
 
 class LoggedInMixin(object):
@@ -16,13 +17,13 @@ class LoggedInMixin(object):
 
 def register(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = RegistrationForm(request.POST)
         if form.is_valid():
             form.save()
             return HttpResponseRedirect(reverse('registration_complete'))
 
     else:
-        form = UserCreationForm()
+        form = RegistrationForm()
     token = {}
     token.update(csrf(request))
     token['form'] = form
