@@ -4,7 +4,7 @@
 
   <h2>Registration</h2>
 
-  <form action="{% url 'register' %}" method="post">
+  <form action="{% url 'registration_register' %}" method="post">
 		{% csrf_token %}
     {{form.as_p}}
 		<input type="submit" value="Register" />

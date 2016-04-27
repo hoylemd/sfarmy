@@ -110,6 +110,13 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# django-registration settings
+# days activatiin link is valid for
+ACCOUNT_ACTIVATION_DAYS = os.environ.get('ACCOUNT_ACTIVATION_DAYS', 7)
+# True to allow registration, false to disallow
+REGISTRATION_OPEN = os.environ.get('REGISTRATION_OPEN', True)
+REGISTRATION_SALT = os.environ.get('REGISTRATION_SALT', 'registration')
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/

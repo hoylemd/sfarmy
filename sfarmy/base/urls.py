@@ -4,7 +4,7 @@ from django.contrib.auth.views import login, logout
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.views.generic import TemplateView
 
-from .views import register, registration_complete
+from registration.backends.hmac.urls import urlpatterns as registration_urls
 
 app_name = 'base'
 urlpatterns = [
@@ -13,9 +13,4 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^login/$', login, name='login'),
     url(r'^logout/$', logout, name='logout'),
-
-    # Registration URLs
-    url(r'^register/$', register, name='register'),
-    url(r'^register/complete/$', registration_complete,
-        name='registration_complete'),
-] + staticfiles_urlpatterns()
+] + staticfiles_urlpatterns() + registration_urls
