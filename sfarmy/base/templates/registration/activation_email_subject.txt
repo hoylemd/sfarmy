@@ -1,1 +1,1 @@
-Activate your account!
+{% load i18n %}{% trans "Account activation on" %} {{ site.name }}

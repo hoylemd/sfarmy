@@ -1,8 +1,6 @@
 {% extends "base.html" %}
-{% block title %}You are Registered{% endblock %}
+{% load i18n %}
+
 {% block content %}
-
-  <h2>Thank you for Registering</h2>
-  <p><a href="{% url 'login' %}">Please Login</a></p>
-
+<p>{% trans "You are now registered. Activation email sent." %}</p>
 {% endblock %}
