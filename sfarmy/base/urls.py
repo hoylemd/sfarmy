@@ -8,7 +8,7 @@ from registration.backends.hmac.urls import urlpatterns as registration_urls
 
 app_name = 'base'
 urlpatterns = [
-    url(r'^$', TemplateView.as_view(template_name='home.html')),
+    url(r'^$', TemplateView.as_view(template_name='home.html'), name='home'),
     url(r'^polls/', include('polls.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^login/$', login, name='login'),
