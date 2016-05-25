@@ -1,14 +1,14 @@
-PROJECT_NAME=sfarmy
-CORE_APP_NAME=sfarmy
-CORE_APP_PATH=$(PROJECT_NAME)/$(CORE_APP_NAME)
-MANAGE=python $(PROJECT_NAME)/manage.py
+PROJECT_NAME=hs_sim
+CORE_APP_NAME=hs_sim
+CORE_APP_PATH=app/$(CORE_APP_NAME)
+MANAGE=python app/manage.py
 
 all: go
 
-go: $(PROJECT_NAME)/manage.py
+go: app/manage.py
 	$(MANAGE) runserver
 
-migrate: $(PROJECT_NAME)/manage.py
+migrate: app/manage.py
 	$(MANAGE) migrate
 
 first_time_dev_setup: scripts/first_time.sh
