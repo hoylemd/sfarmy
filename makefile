@@ -11,5 +11,8 @@ go: app/manage.py
 migrate: app/manage.py
 	$(MANAGE) migrate
 
+migrations: app/manage.py
+	$(MANAGE) makemigrations
+
 first_time_dev_setup: scripts/first_time.sh
 	scripts/first_time.sh
