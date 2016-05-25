@@ -64,9 +64,9 @@ def save_abilities(file_name="abilities.json"):
 class Card(models.Model):
     name = models.CharField(max_length=200)
     deck_class = models.CharField(max_length=200)
-    cost = models.IntegerField(),
-    text = models.CharField(max_length=200)
-    abilities_json = models.CharField(max_length=500)
+    cost = models.IntegerField()
+    text = models.CharField(max_length=200, blank=True)
+    abilities_json = models.CharField(max_length=500, blank=True)
 
     @property
     def abilities(self):
