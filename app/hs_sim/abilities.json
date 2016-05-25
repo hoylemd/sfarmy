@@ -1,0 +1,14 @@
+{
+  "values": {
+    "charge": 2,
+    "divine_shield": 1.5,
+    "draw_card": 2,
+    "on_spell_cast_summon_equal_cost_minion": 0,
+    "silence": 1.5,
+    "taunt": 1.5
+  },
+  "variable_values": [
+    "direct_damage",
+    "spell_damage"
+  ]
+}

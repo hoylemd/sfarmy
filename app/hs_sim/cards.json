@@ -1,0 +1,14 @@
+
+
+[
+  {
+    "abilities": {
+      "on_spell_cast_summon_equal_cost_minion": ""
+    },
+    "cost": 5,
+    "deck_class": "neutral",
+    "name": "Summoning Stone",
+    "text": "Whenever you cast a spell, summon a random minion of the same cost",
+    "value": null
+  }
+]

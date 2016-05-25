@@ -1,0 +1,32 @@
+function to determine best plays
+similate all iterations of a given deck curve - parallelize it, like in effective python!!!
+web app, cacheing deck curves and scores
+background worker. take a deck curve, mutate it randomly, and kick off a simulation for it (every 5 minutes or so? maybe tie ti to CPU availability)
+add actual deck listing
+track wins/loss on a deck
+deck version control
+card collections
+decklist comparator
+
+actual game simulation:
+calculate all possible plays from hand, and rank outcome
+
+play/ kill a Minion: +/- that minion's card score value
+waste a mana: - 2 score
+draw / discard: +/- 1.5
+
+minion card score:
+attack + health + effect value + synergy value (usually < 1)
+effect values are: stat swing given + damage_value + misc value
+damage_value: directed damage: 1.5x
+random damage: 1x
+aoe damage: 1.5x * targets
+
+silence: 1.5
+taunt: 1.5
+charge: 2
+divine shield: 1.5
+draw a card: 2
+
+Cards with card score > 2 x their mana cost are on or above curve
+
