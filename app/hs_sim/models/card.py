@@ -3,6 +3,8 @@ import json
 
 from django.db import models
 
+from ability import Ability
+
 # TODO: rearrange these to alphabetical order and use constants
 deck_class_choices = {
     'druid': 'Druid',
@@ -17,53 +19,19 @@ deck_class_choices = {
     'neutral': 'Neutral'
 }
 
-ability_values = {
-    'silence': 1.5,
-    'taunt': 1.5,
-    'charge': 2,
-    'divine_shield': 1.5,
-    'draw_card': 2,
-}
-
-
-def direct_damage_value(amount=0):
-    return 1.5 * amount
-
-
-def spell_damage(amount=1):
-    return amount
-
-variable_ability_values = {
-    'direct_damage': direct_damage_value,
-    'spell_damage': spell_damage
-}
-
 
 class Card(models.Model):
     name = models.CharField(max_length=200)
     deck_class = models.CharField(max_length=200)
     cost = models.IntegerField()
     text = models.CharField(max_length=200, blank=True)
-    abilities_json = models.CharField(max_length=500, blank=True)
-
-    @property
-    def abilities(self):
-        json.loads(self.abilities_json)
+    abilities = models.ManyToManyField(Ability)
 
     @property
     def value(self):
         value = 0
         for ability in self.abilities:
-            params = self.abilities[ability]
-            if ability in ability_values:
-                value += ability_values[ability]
-            elif ability in variable_ability_values:
-                value += variable_ability_values[ability](**params)
-            else:
-                ability_values[ability] = 0
-                print ("Unkown ability encountered: {}{}"
-                       .format(ability,
-                               "({})".format(params) if params else ''))
+            value += ability.value()
 
         return value
 
