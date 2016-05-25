@@ -3,10 +3,6 @@ import json
 
 from django.db import models
 
-from utils import write_to_json_file, read_from_json_file
-
-ABILITIES_FILE_NAME = 'app/hs_sim/abilities.json'
-
 # TODO: rearrange these to alphabetical order and use constants
 deck_class_choices = {
     'druid': 'Druid',
@@ -41,24 +37,6 @@ variable_ability_values = {
     'direct_damage': direct_damage_value,
     'spell_damage': spell_damage
 }
-
-
-all_abilities_dict = read_from_json_file(ABILITIES_FILE_NAME)
-
-ability_values = all_abilities_dict['values']
-for ability in all_abilities_dict['variable_values']:
-    if (ability not in variable_ability_values
-            or variable_ability_values[ability] is None):
-        print "New ability '{}' found in file!".format(ability)
-        variable_ability_values[ability] = None
-
-
-def save_abilities(file_name="abilities.json"):
-    new_abilities_dict = {
-        'values': ability_values,
-        'variable_values': variable_ability_values.keys()
-    }
-    write_to_json_file(new_abilities_dict, ABILITIES_FILE_NAME)
 
 
 class Card(models.Model):
